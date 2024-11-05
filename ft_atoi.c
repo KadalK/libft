@@ -1,15 +1,27 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kapinarc <kapinarc@strudent.42lyon.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 14:50:32 by kapinarc          #+#    #+#             */
+/*   Updated: 2024/11/04 15:38:38 by kapinarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 long	ft_atol(const char *str)
 {
-	int	i;
-	int conv;
+	int		conv;
+	int		i;
 	long	res;
 
 	res = 0;
 	i = 0;
 	conv = 1;
-	while ((str[i] >= 9 && str[i] <= 13)|| (str[i] == ' '))
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
@@ -25,7 +37,7 @@ long	ft_atol(const char *str)
 	return (res * conv);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	return ((int)ft_atol(str));
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kapinarc <kapinarc@strudent.42lyon.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 14:50:32 by kapinarc          #+#    #+#             */
+/*   Updated: 2024/11/04 14:50:32 by kapinarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	ft_in_set(char c, const char *set)
@@ -23,18 +35,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
-
 	i = 0;
 	j = ft_strlen(s1);
 	k = 0;
-
 	while (s1[i] && ft_in_set(s1[i], set))
 		i++;
 	while (j > i && ft_in_set(s1[j - 1], set))
 		j--;
 	trim = malloc(sizeof(char) * (j - i + 1));
 	if (!trim)
-		return(NULL);
+		return (NULL);
 	while (i <= j)
 		trim[k++] = s1[i++];
 	trim[k] = '\0';

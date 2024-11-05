@@ -1,26 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kapinarc <kapinarc@strudent.42lyon.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 14:50:32 by kapinarc          #+#    #+#             */
+/*   Updated: 2024/11/04 14:50:32 by kapinarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*sub;
+	char			*sub;
 	unsigned int	total_size;
-	size_t	i;
+	size_t			i;
 
 	i = 0;
 	total_size = (unsigned int)ft_strlen(s);
 	if (start >= total_size)
 	{
-		sub = malloc(1);
+		sub = ft_calloc(1, 1);
 		if (!sub)
 			return (NULL);
-		sub[0] = '\0';
 		return (sub);
 	}
-
 	if (len > total_size - start)
 		len = total_size - start;
-
-	sub = malloc(sizeof (char) * (len + 1));
+	sub = ft_calloc(len + 1, sizeof (char));
 	if (!sub)
 		return (NULL);
 	while (i < len)
@@ -28,10 +37,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		sub[i] = s[start + i];
 		i++;
 	}
-	sub[i] = '\0';
 	return (sub);
 }
 
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
@@ -65,4 +74,4 @@ int main(int argc, char **argv)
 		printf("Memory allocation failed.\n");
 	}
 	return 0;
-}
+}*/

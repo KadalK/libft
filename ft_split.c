@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kapinarc <kapinarc@strudent.42lyon.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 14:50:32 by kapinarc          #+#    #+#             */
+/*   Updated: 2024/11/04 14:50:32 by kapinarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	count_word(char const *s, char c)
 {
 	size_t	i;
-	size_t wrd;
+	size_t	wrd;
 
 	i = 0;
 	wrd = 0;
@@ -21,12 +33,13 @@ static size_t	ft_superlen(char const *s, char c, size_t *i)
 	size_t	len;
 
 	len = 0;
-	while(s[*i] && s[*i] == c)
+	while (s[*i] && s[*i] == c)
 		(*i)++;
 	while (s[*i + len] && s[*i + len] != c)
 		len++;
-	return len;
+	return (len);
 }
+
 static char	*ft_superdup(char const *s, size_t len, size_t *index)
 {
 	char	*word;
@@ -56,21 +69,17 @@ char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	size_t	i;
-	size_t	word_count;
 	size_t	index;
 	size_t	len;
 
-	if(!s)
+	if (!s)
 		return (NULL);
-
-	word_count = count_word(s, c);
-
-	split = ft_calloc(word_count + 1, sizeof(char *));
+	split = ft_calloc(count_word(s, c) + 1, sizeof(char *));
 	if (!split)
 		return (NULL);
 	i = 0;
 	index = 0;
-	while (index < word_count)
+	while (index < count_word(s, c))
 	{
 		len = ft_superlen(s, c, &i);
 		split[index] = ft_superdup(s, len, &i);
@@ -84,6 +93,7 @@ char	**ft_split(char const *s, char c)
 	split[index] = NULL;
 	return (split);
 }
+/*
 #include <stdio.h>
 #include "libft.h"
 
@@ -99,6 +109,4 @@ int main()
 	split_destroy(result, count_word("une délicieuse glace à la vionde", ' '));
 	return 0;
 }
-
-
-
+ */

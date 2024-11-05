@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kapinarc <kapinarc@strudent.42lyon.fr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/04 14:50:32 by kapinarc          #+#    #+#             */
+/*   Updated: 2024/11/04 16:06:00 by kapinarc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_size(int n, int *size)
@@ -24,7 +36,7 @@ static void	ft_fil(int n, char *str, int *i)
 		str[*i] = '-';
 		(*i)++;
 	}
-	if (n >=10)
+	if (n >= 10)
 	{
 		ft_fil(n / 10, str, i);
 		str[*i] = n % 10 + 48;
@@ -37,13 +49,11 @@ static void	ft_fil(int n, char *str, int *i)
 	}
 }
 
-
 char	*ft_itoa(int n)
 {
-	int size;
-	char *str;
-	int	i;
-
+	char	*str;
+	int		size;
+	int		i;
 
 	i = 0;
 	size = 0;
@@ -52,14 +62,15 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	ft_fil(n, str, &i);
-	return(str);
+	return (str);
 }
-
+/*
 int	main(void)
 {
-	int n = 5454;
-	char *str = ft_itoa(n);
+	int	n = 5454;
+	char	*str = ft_itoa(n);
 	printf("%s\n", str);
 	free (str);
 	return (0);
 }
+*/
