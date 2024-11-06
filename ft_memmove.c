@@ -14,30 +14,32 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t		i;
-	char		*d;
+	char	*d;
 	const char	*s;
 
+	if (src > dest)
+		dest = ft_memcpy(dest, src, n);
+	else
+	{
 	d = (char *) dest;
 	s = (const char *) src;
-	i = 0;
-	if (!d && !s)
-		return (dest);
-	if (d < s)
-	{
-		while (i < n)
-		{
-			d[i] = s[i];
-			i++;
-		}
-	}
-	else if (d > s)
-	{
 		while (n > 0)
 		{
-			d[n - 1] = s[n - 1];
-			n--;
+		n--;
+		d[n] = s[n];
 		}
 	}
-	return (dest);
+		return (dest);
 }
+/*
+int	main()
+{
+	char src_buff[20] = "123456789123456789";
+	char dest_buff[20] = "trouduc";
+
+	ft_memmove(src_buff, dest_buff, 5);
+
+	printf("%s\n", src_buff);
+	return 0;
+}
+*/

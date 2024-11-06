@@ -27,7 +27,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			return ((int)str1[i] - (int)str2[i]);
 		i++;
 	}
-	return ((int)str1[i] - (int)str2[i]);
+	return (0);
 }
 /*
 int	main(int ac, char **av)

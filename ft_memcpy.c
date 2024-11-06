@@ -34,15 +34,14 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 int	main(void)
 {
-    char src[20] = "Hello, world!";
-    char dest[20];
+	char src[20] = "Hello, Warrio";
+	char dest[20];
 
-    // Appel de ft_memcpy
-    ft_memcpy(dest, src, 13); // Copie 13 octets
+	ft_memcpy(dest, src, 13); // Copie 13 octets
 
-    // Affichage du résultat
-    printf("Source: %s\n", src);
-    printf("Destination: %s\n", dest);
+	printf("Source: %s\n", src);
+	printf("Destination: %s\n", dest);
 
-    return 0;
-} */
+	return 0;
+}
+*/
