@@ -34,10 +34,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 /*
 int	main()
 {
-	char src_buff[20] = "123456789123456789";
+	char src_buff[20] = "12345";
 	char dest_buff[20] = "trouduc";
 
-	ft_memmove(src_buff, dest_buff, 5);
+	ft_memmove(src_buff, dest_buff, 8);
 
 	printf("%s\n", src_buff);
 	return 0;

@@ -22,9 +22,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (end >= s)
 	{
 		if (*end == (char) c)
-		{
 			return ((char *)end);
-		}
 		end--;
 	}
 	return (NULL);
@@ -42,4 +40,5 @@ int	main(void)
 	else
 		printf("On n'a pas trouvé '%c', chef!\n", c);
 	return (0);
-} */
+}
+*/

@@ -30,6 +30,7 @@ static void	ft_size(int n, int *size)
 
 static void	ft_fil(int n, char *str, int *i)
 {
+
 	if (n < 0)
 	{
 		n *= -1;
@@ -55,6 +56,8 @@ char	*ft_itoa(int n)
 	int		size;
 	int		i;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	i = 0;
 	size = 0;
 	ft_size(n, &size);

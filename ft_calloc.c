@@ -17,8 +17,11 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*greg;
 
 	if (!nmemb || !size)
-		return (NULL);
-	if (size > __SIZE_MAX__ / nmemb)
+	{
+		greg = malloc(0);
+		return (greg);
+	}
+	if (size > __SIZE_MAX__ / nmemb || nmemb > __SIZE_MAX__ / size)
 		return (NULL);
 	greg = malloc(nmemb * size);
 	if (!greg)

@@ -23,7 +23,7 @@ long	ft_atol(const char *str)
 	conv = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			conv *= -1;
