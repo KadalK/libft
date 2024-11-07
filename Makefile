@@ -33,6 +33,12 @@ SRC	=	ft_atoi.c	\
 		ft_putnbr_fd.c	\
 		ft_strmapi.c
 
+SRC_BONUS =	ft_lstnew.c	\
+
+OBJ	= $(SRC:.c=.o)
+
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
+
 HEADER	= libft.h
 
 NAME	= libft.a
@@ -41,16 +47,16 @@ CC	= gcc
 
 CFLAGS	= -Wall -Wextra -Werror
 
-OBJ	= $(SRC:.c=.o)
-
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Makefile
 		ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
 		$(CC) $(CFLAGS) -c $< -o $@
 
+bonus: $(OBJ_BONUS) $(OBJ)
+		ar rcs $(NAME) $(OBJ_BONUS) $(OBJ)
 clean:
 		rm -f $(OBJ)
 
