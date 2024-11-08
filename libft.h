@@ -19,6 +19,12 @@
 # include <string.h>
 # include <stdlib.h>
 
+typedef struct s_list
+{
+	void *content;
+	struct s_list *next;
+} t_list;
+
 int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
 size_t	ft_strlen(const char *str);
@@ -54,5 +60,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_putnbr_fd(int n, int fd);
+t_list	*ft_lstnew(void * content);
 
 #endif
