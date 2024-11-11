@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s)
 
 	i = 0;
 	len = ft_strlen(s) + 1;
-	dup = malloc(sizeof(char) * len);
+	dup = ft_calloc(len , sizeof(char));
 	if (!dup)
 		return (NULL);
 	while (s[i])
@@ -28,6 +28,5 @@ char	*ft_strdup(const char *s)
 		dup[i] = s[i];
 		i++;
 	}
-	dup[i] = '\0';
 	return (dup);
 }

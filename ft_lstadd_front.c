@@ -17,7 +17,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-
+/*
 int main(void)
 {
 	t_list	*lst1 = ft_lstnew("ma ");
@@ -34,4 +34,4 @@ int main(void)
 	printf("%s\n", (char *)(lst1->content));
 	printf("%s\n", (char *)(lst2->content));
 	printf("%s\n", (char *)(lst3->content));
-}
+}*/
