@@ -109,4 +109,4 @@ int main()
 	split_destroy(result, count_word("une délicieuse glace à la vionde", ' '));
 	return 0;
 }
- */
+*/

@@ -20,7 +20,7 @@ void	*ft_memset(void *adr, int value, size_t n)
 	while (n)
 	{
 		*str = (unsigned char)value;
-		str ++;
+		str++;
 		n--;
 	}
 	return (adr);

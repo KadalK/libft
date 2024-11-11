@@ -67,13 +67,13 @@ char	*ft_itoa(int n)
 	ft_fil(n, str, &i);
 	return (str);
 }
-/*
-int	main(void)
+
+#include <stdlib.h>
+
+int	main(int argc, char **argv)
 {
-	int	n = 5454;
-	char	*str = ft_itoa(n);
+	(void)argc;
+	char	*str = ft_itoa(atoi(argv[1]));
 	printf("%s\n", str);
-	free (str);
 	return (0);
 }
-*/
