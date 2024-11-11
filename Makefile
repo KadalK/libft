@@ -39,8 +39,6 @@ SRC_BONUS = ft_lstnew.c	\
 
 OBJ	= $(SRC:%.c=$(OBJ_D)%.o)
 
-OBJ_BONUS = $(SRC_BONUS:%.c=$(OBJ_D)%.o)
-
 HEADER	= libft.h
 
 HEAD_D	= .
@@ -53,8 +51,8 @@ CFLAGS	= -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ_D) $(OBJ) $(OBJ_BONUS) Makefile
-		ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
+$(NAME): $(OBJ_D) $(OBJ) Makefile
+		ar rcs $(NAME) $(OBJ)
 
 $(OBJ)	:	$(OBJ_D)%.o: %.c $(HEADER)
 		$(CC) $(CFLAGS) -I$(HEAD_D) -c $< -o $@
@@ -63,7 +61,7 @@ $(OBJ_D):
 	@mkdir -p $(OBJ_D)
 
 bonus:
-		@make SRC="$(SRC) $(SRC_BONUS)"
+		@make -e SRC="$(SRC) $(SRC_BONUS)"
 
 clean:
 		@rm -rf $(OBJ) $(OBJ_BONUS) $(OBJ_D)
