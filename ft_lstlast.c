@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-t_list *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-		if (lst)
-		{
-			while(lst->next)
-				lst = lst->next;
-		}
+	if (lst)
+	{
+		while (lst->next)
+			lst = lst->next;
+	}
 	return (lst);
 }
-
+/*
 int	main()
 {
 	t_list *lst1 = ft_lstnew("kk");
@@ -39,3 +39,4 @@ int	main()
 	free(lst2);
 	free(lst3);
 }
+*/

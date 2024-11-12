@@ -30,7 +30,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	len;
 	size_t	i;
-
 	char	*trim;
 
 	if (!s1 || !set)

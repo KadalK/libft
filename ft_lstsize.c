@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	if (lst == NULL)
@@ -34,6 +34,5 @@ int	ft_lstsize(t_list *lst)
 //	lst1->next = lst2;
 //	t_list	*lstcontent = lst1;
 //	t_list	*lstcontent2 = lst2;
-//	printf("%d\n", ft_lstsize(lstcontent));
 //	printf("%d\n", ft_lstsize(lstcontent2));
 //}

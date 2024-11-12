@@ -30,7 +30,6 @@ static void	ft_size(int n, int *size)
 
 static void	ft_fil(int n, char *str, int *i)
 {
-
 	if (n < 0)
 	{
 		n *= -1;
@@ -67,7 +66,7 @@ char	*ft_itoa(int n)
 	ft_fil(n, str, &i);
 	return (str);
 }
-
+/*
 #include <stdlib.h>
 
 int	main(int argc, char **argv)
@@ -77,3 +76,4 @@ int	main(int argc, char **argv)
 	printf("%s\n", str);
 	return (0);
 }
+*/
