@@ -17,25 +17,3 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
-
-void	ft_lstprint(t_list *lst)
-{
-	t_list *tmp = lst;
-	while (tmp != NULL)
-	{
-		printf("%s\n", (char *)tmp->content);
-		tmp = tmp->next;
-	}
-}
-/*
-int main(void)
-{
-	t_list	*head = NULL;
-	t_list *lst1 = ft_lstnew("mite");
-//	ft_lstadd_front(&head, lst1);
-//	t_list *lst2 = ft_lstnew("grosse");
-//	ft_lstadd_front(&head, lst2);
-//	t_list *lst3 = ft_lstnew("ma");
-//	ft_lstadd_front(&head, lst3);
-	ft_lstprint(head);
-}*/
