@@ -16,17 +16,16 @@ static void	ft_size(long n, int *size)
 {
 	if (n < 0)
 	{
-		*size += 1;
+		(*size)++;
 		n *= -1;
-
 	}
 	if (n >= 10)
 	{
 		ft_size(n / 10, size);
-		*size += 1;
+		(*size)++;
 	}
 	if (n < 10)
-		*size += 1;
+		(*size)++;
 }
 
 static void	ft_fil(long n, char *str, int *i)
@@ -65,13 +64,3 @@ char	*ft_itoa(int n)
 	ft_fil(n, str, &i);
 	return (str);
 }
-/*
-#include <stdlib.h>
-
-int	main(void)
-{
-	char	*str = ft_itoa(-10);
-	printf("%s\n", str);
-	free(str);
-	return (0);
-}*/

@@ -38,7 +38,7 @@ int	main(void)
 	char src[20] = "Hello, Warrio";
 	char dest[20];
 
-	ft_memcpy(dest, src, 13); // Copie 13 octets
+	ft_memcpy(dest, src, 13);
 
 	printf("Source: %s\n", src);
 	printf("Destination: %s\n", dest);

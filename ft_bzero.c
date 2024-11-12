@@ -25,16 +25,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-/*
-int main(int ac, char **av)
-{
-	if (ac < 2)
-	{
-		return (0);
-	}
-
-
-	ft_bzero(av[1], 5);
-	printf("%s\n", av[1]);
-	return (0);
-}*/

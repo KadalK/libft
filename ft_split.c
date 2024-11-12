@@ -28,14 +28,14 @@ static size_t	count_word(char const *s, char c)
 	return (wrd);
 }
 
-static size_t	ft_superlen(char const *s, char c, size_t *i)
+static size_t	ft_superlen(char const *s, char c, size_t *index)
 {
 	size_t	len;
 
 	len = 0;
-	while (s[*i] && s[*i] == c)
-		(*i)++;
-	while (s[*i + len] && s[*i + len] != c)
+	while (s[*index] && s[*index] == c)
+		(*index)++;
+	while (s[*index + len] && s[*index + len] != c)
 		len++;
 	return (len);
 }

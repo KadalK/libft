@@ -29,7 +29,7 @@ char	*ft_strchr(const char *s, int c)
 int	main(void)
 {
 	char *res;
-	char *str = "mange ma beteu";
+	char *str = "mange ma barquette";
 	char c = 't';
 
 	res = ft_strchr(str, c);
