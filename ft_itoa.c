@@ -12,12 +12,13 @@
 
 #include "libft.h"
 
-static void	ft_size(int n, int *size)
+static void	ft_size(long n, int *size)
 {
 	if (n < 0)
 	{
 		*size += 1;
-		n *= 1;
+		n *= -1;
+
 	}
 	if (n >= 10)
 	{
@@ -28,7 +29,7 @@ static void	ft_size(int n, int *size)
 		*size += 1;
 }
 
-static void	ft_fil(int n, char *str, int *i)
+static void	ft_fil(long n, char *str, int *i)
 {
 	if (n < 0)
 	{
@@ -55,8 +56,6 @@ char	*ft_itoa(int n)
 	int		size;
 	int		i;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	i = 0;
 	size = 0;
 	ft_size(n, &size);
@@ -69,11 +68,10 @@ char	*ft_itoa(int n)
 /*
 #include <stdlib.h>
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	(void)argc;
-	char	*str = ft_itoa(atoi(argv[1]));
+	char	*str = ft_itoa(-10);
 	printf("%s\n", str);
+	free(str);
 	return (0);
-}
-*/
+}*/

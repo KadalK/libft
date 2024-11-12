@@ -27,6 +27,7 @@ void	ft_lstprint(t_list *lst)
 		tmp = tmp->next;
 	}
 }
+/*
 int main(void)
 {
 	t_list	*head = NULL;
@@ -37,4 +38,4 @@ int main(void)
 //	t_list *lst3 = ft_lstnew("ma");
 //	ft_lstadd_front(&head, lst3);
 	ft_lstprint(head);
-}
+}*/

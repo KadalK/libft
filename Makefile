@@ -32,12 +32,14 @@ SRC	=		ft_atoi.c	\
 			ft_putendl_fd.c	\
 			ft_putnbr_fd.c	\
 			ft_strmapi.c	\
+			ft_lstclear.c
 
 SRC_BONUS = ft_lstnew.c	\
 			ft_lstadd_front.c \
 			ft_lstsize.c	\
 			ft_lstlast.c	\
-			ft_lstadd_back.c
+			ft_lstadd_back.c	\
+			ft_lstdelone.c
 
 OBJ	= $(SRC:%.c=$(OBJ_D)%.o)
 
