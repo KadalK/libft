@@ -23,11 +23,3 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
-//
-//int main (void)
-//{
-//	t_list *lst1 = ft_lstnew("Sucre moi la tisane");
-//	printf("%s\n", (char *)lst1->content);
-//	free(lst1);
-//	return 0;
-//}

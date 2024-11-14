@@ -29,20 +29,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char src[20] = "Hello, Warrio";
-	char dest[20];
-
-	ft_memcpy(dest, src, 13);
-
-	printf("Source: %s\n", src);
-	printf("Destination: %s\n", dest);
-
-	return 0;
-}
-*/

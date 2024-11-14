@@ -60,7 +60,7 @@ all: $(NAME)
 $(NAME): $(OBJ_D) $(OBJ) Makefile
 		ar rcs $(NAME) $(OBJ)
 
-$(OBJ)	:	$(OBJ_D)%.o: %.c $(HEADER)
+$(OBJ):	$(OBJ_D)%.o: %.c $(HEADER)
 		$(CC) $(CFLAGS) -I$(HEAD_D) -c $< -o $@
 
 $(OBJ_D):

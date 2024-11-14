@@ -26,13 +26,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (size);
 }
-//
-//int main(void)
-//{
-//	t_list *lst1 = ft_lstnew("Hello");
-//	t_list *lst2 = ft_lstnew("Hello");
-//	lst1->next = lst2;
-//	t_list	*lstcontent = lst1;
-//	t_list	*lstcontent2 = lst2;
-//	printf("%d\n", ft_lstsize(lstcontent2));
-//}

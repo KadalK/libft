@@ -33,8 +33,8 @@ int	main(void)
 
 	t_list *list = NULL;
 	t_list *lst1 = ft_lstnew("Hello");
-	t_list *lst2 = ft_lstnew("World");
-	t_list *lst3 = ft_lstnew("!");
+	t_list *lst2 = ft_lstnew("hello");
+	t_list *lst3 = ft_lstnew("how low");
 	// Ajouter le premier élément
 	ft_lstadd_back(&list, lst1);
 	// Ajouter un deuxièmelst
@@ -48,7 +48,7 @@ int	main(void)
 		printf("%s\n", (char *)current->content);
 		current = current->next;
 	}
-	// Libérer la mémoire allouée
+
 	current = list;
 	while (current)
 	{
