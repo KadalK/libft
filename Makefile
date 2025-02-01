@@ -32,16 +32,17 @@ SRC	=		ft_atoi.c	\
 			ft_putendl_fd.c	\
 			ft_putnbr_fd.c	\
 			ft_strmapi.c	\
-			ft_lstiter.c
-
-SRC_BONUS = ft_lstnew.c	\
+			ft_lstnew.c	\
 			ft_lstadd_front.c \
 			ft_lstsize.c	\
 			ft_lstlast.c	\
 			ft_lstadd_back.c	\
 			ft_lstdelone.c	\
 			ft_lstclear.c	\
-			ft_lstmap.c
+			ft_lstmap.c \
+			ft_lstiter.c	\
+			get_next_line.c	\
+			get_next_line_utils.c
 
 OBJ	= $(SRC:%.c=$(OBJ_D)%.o)
 
@@ -57,7 +58,7 @@ CFLAGS	= -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ_D) $(OBJ) Makefile
+$(NAME): $(OBJ_D) $(OBJ) Makefile libft.h get_next_line.h
 		ar rcs $(NAME) $(OBJ)
 
 $(OBJ):	$(OBJ_D)%.o: %.c $(HEADER)
@@ -65,9 +66,6 @@ $(OBJ):	$(OBJ_D)%.o: %.c $(HEADER)
 
 $(OBJ_D):
 	@mkdir -p $(OBJ_D)
-
-bonus:
-		@make -e SRC="$(SRC) $(SRC_BONUS)"
 
 clean:
 		@rm -rf $(OBJ) $(OBJ_BONUS) $(OBJ_D)

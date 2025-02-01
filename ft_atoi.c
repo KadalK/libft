@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
 
-static void	ft_bis_atoi(const char *str, size_t *i, int *conv)
+static void	ft_bis_atol(const char *str, size_t *i, int *conv)
 {
 	while ((str[*i] >= 9 && str[*i] <= 13) || (str[*i] == ' '))
 		(*i)++;
@@ -25,7 +24,7 @@ static void	ft_bis_atoi(const char *str, size_t *i, int *conv)
 	}
 }
 
-long	ft_atol(const char *str)
+static long	ft_atol(const char *str)
 {
 	int					conv;
 	size_t				i;
@@ -34,7 +33,7 @@ long	ft_atol(const char *str)
 	res = 0;
 	i = 0;
 	conv = 1;
-	ft_bis_atoi(str, &i, &conv);
+	ft_bis_atol(str, &i, &conv);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (res > LLONG_MAX && conv < 0)
@@ -51,14 +50,7 @@ long	ft_atol(const char *str)
 	return (((long)res) * conv);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
-	return ((int)ft_atol(str));
+	return ((int)ft_atol(nptr));
 }
-/*
-int	main(int ac, char **av)
-{
-	printf("ORIGINAL\n%d\n", atoi(av[1]));
-	printf("MON CUL SUR LA COMODE\n%d\n", ft_atoi(av[1]));
-}
-*/

@@ -11,102 +11,183 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//
+//static size_t	count_word(char const *s, char c)
+//{
+//	size_t	i;
+//	size_t	wrd;
+//
+//	i = 0;
+//	wrd = 0;
+//	while (s[i])
+//	{
+//		if (s[i] != c && (i == 0 || s[i - 1] == c))
+//			wrd++;
+//		i++;
+//	}
+//	return (wrd);
+//}
+//
+//static size_t	ft_superlen(char const *s, char c, size_t *index)
+//{
+//	size_t	len;
+//
+//	len = 0;
+//	while (s[*index] && s[*index] == c)
+//		(*index)++;
+//	while (s[*index + len] && s[*index + len] != c)
+//		len++;
+//	return (len);
+//}
+//
+//static char	*ft_superdup(char const *s, size_t len, size_t *index)
+//{
+//	char	*word;
+//	size_t	i;
+//
+//	word = ft_calloc(len + 1, sizeof(char));
+//	if (!word)
+//		return (NULL);
+//	i = 0;
+//	while (i < len)
+//	{
+//		word[i] = s[*index];
+//		(*index)++;
+//		i++;
+//	}
+//	return (word);
+//}
+//
+//static void	free_split(char **split, size_t i)
+//{
+//	while (i > 0)
+//	{
+//		free(split[i - 1]);
+//		i--;
+//	}
+//	free(split);
+//}
+//
+//char	**ft_split(char const *s, char c)
+//{
+//	char	**split;
+//	size_t	i;
+//	size_t	index;
+//	size_t	len;
+//
+//	if (!s)
+//		return (NULL);
+//	split = ft_calloc(count_word(s, c) + 1, sizeof(char *));
+//	if (!split)
+//		return (NULL);
+//	i = 0;
+//	index = 0;
+//	while (i < count_word(s, c))
+//	{
+//		len = ft_superlen(s, c, &index);
+//		split[i] = ft_superdup(s, len, &index);
+//		if (!split[i])
+//		{
+//			free_split(split, i);
+//			return (NULL);
+//		}
+//		i++;
+//	}
+//	split[i] = NULL;
+//	return (split);
+//}
 
-static size_t	count_word(char const *s, char c)
+#include "libft.h"
+
+static size_t	ft_countwords(char const *s, char c)
 {
 	size_t	i;
-	size_t	wrd;
+	size_t	words;
 
+	words = 0;
 	i = 0;
-	wrd = 0;
-	while (s[i])
+	if (s[i] != c && s[i] != 0)
+		words++;
+	i++;
+	while (s[0] && s[i])
 	{
-		if (s[i] != c && (i == 0 || s[i - 1] == c))
-			wrd++;
+		if (s[i] != c && s[i - 1] == c)
+			words++;
 		i++;
 	}
-	return (wrd);
+	return (words);
 }
 
-static size_t	ft_superlen(char const *s, char c, size_t *index)
+static size_t	ft_wdlen(char const *s, char c, size_t j)
 {
+	size_t	i;
+
+	i = j;
+	while (s[i] != c && s[i] != 0)
+		i++;
+	return (i);
+}
+
+static char	*ft_superdup(char const *s, char c, size_t *j)
+{
+	char	*str;
 	size_t	len;
-
-	len = 0;
-	while (s[*index] && s[*index] == c)
-		(*index)++;
-	while (s[*index + len] && s[*index + len] != c)
-		len++;
-	return (len);
-}
-
-static char	*ft_superdup(char const *s, size_t len, size_t *index)
-{
-	char	*word;
 	size_t	i;
 
-	word = ft_calloc(len + 1, sizeof(char));
-	if (!word)
-		return (NULL);
+	len = ft_wdlen(s, c, *j);
+	str = malloc(sizeof(char) * (len - *j + 1));
+	if (str == NULL)
+		return (str);
 	i = 0;
-	while (i < len)
+	while (*j < len)
 	{
-		word[i] = s[*index];
-		(*index)++;
+		str[i] = s[*j];
+		*j += 1;
 		i++;
 	}
-	return (word);
+	str[i] = 0;
+	return (str);
 }
 
-static void	split_destroy(char **split, size_t i)
+void	*ft_splitdestroy(char **split)
 {
-	while (i > 0)
-		free (split[--i]);
-	free (split);
+	size_t	i;
+
+	i = 0;
+	while (split[i] != NULL)
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**split;
 	size_t	i;
-	size_t	index;
-	size_t	len;
+	size_t	j;
+	size_t	words;
+	char	**split;
 
 	if (!s)
 		return (NULL);
-	split = ft_calloc(count_word(s, c) + 1, sizeof(char *));
-	if (!split)
-		return (NULL);
 	i = 0;
-	index = 0;
-	while (index < count_word(s, c))
+	j = 0;
+	words = ft_countwords(s, c);
+	split = ft_calloc((words + 1), sizeof(char *));
+	if (!s[0] || split == NULL)
+		return (split);
+	while (i < words)
 	{
-		len = ft_superlen(s, c, &i);
-		split[index] = ft_superdup(s, len, &i);
-		if (!split[index])
+		if (s[j] != c)
 		{
-			split_destroy(split, index);
-			return (NULL);
+			split[i++] = ft_superdup(s, c, &j);
+			if (split[i - 1] == NULL)
+				return (ft_splitdestroy(split));
 		}
-		index++;
+		else
+			j++;
 	}
-	split[index] = NULL;
 	return (split);
 }
-/*
-#include <stdio.h>
-#include "libft.h"
-
-int main()
-{
-	char **result = ft_split("une delicieuse glace à la vionde", ' ');
-	size_t i = 0;
-	while (result && result[i])
-	{
-		printf("Le mot %zu: %s\n", i, result[i]);
-		i++;
-	}
-	split_destroy(result, count_word("une délicieuse glace à la vionde", ' '));
-	return 0;
-}
-*/

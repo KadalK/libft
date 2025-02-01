@@ -14,13 +14,18 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*greg;
+	void	*ptr;
 
+	if (nmemb == 0 || size == 0)
+	{
+		ptr = malloc(0);
+		return (ptr);
+	}
 	if (size > __SIZE_MAX__ / nmemb || nmemb > __SIZE_MAX__ / size)
 		return (NULL);
-	greg = malloc(nmemb * size);
-	if (!greg)
+	ptr = malloc(nmemb * size);
+	if (!ptr)
 		return (NULL);
-	ft_bzero(greg, size * nmemb);
-	return (greg);
+	ft_bzero(ptr, size * nmemb);
+	return (ptr);
 }
